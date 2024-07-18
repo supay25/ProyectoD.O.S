@@ -1,0 +1,72 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <style>
+        .container-left {
+            display: flex;
+            justify-content: flex-end;
+
+            padding: 10px; /* Adjust padding as needed */
+        }
+        .card {
+            width: auto; /* Optional: Adjust width as needed */
+
+        }
+        .top-bar {
+            background-color: #000000;
+            padding: 15px;
+            text-align: right;
+            position: relative;
+            z-index: 1; /* Lower z-index to make sure it's behind the left bar */
+            width: 100%;
+            box-sizing: border-box; /* Ensure padding doesn't affect width */
+        }
+
+    </style>
+    <h:head>
+        <title>Dashboard</title>
+    </h:head>
+    <h:body>
+        <div class="top-bar">
+            <div class="container-left">
+                <div class="card">
+                    <h:form>
+                        <p:growl id="messages"/>
+
+                        <p:menubar>
+                            <f:facet name="start">
+                                <p:graphicImage name="images/primefaces-logo.svg" library="showcase" />
+                            </f:facet>
+                            <p:menuitem value="Dashboard" icon="pi pi-globe" outcome="Dashboard"/>
+                            <p:menuitem value="Asistencia" icon="pi pi-id-card" outcome="Asistencia"/>    
+                            <p:menuitem value="Planilla" icon="pi pi-pencil" outcome="Planilla"/>
+                             <p:menuitem value="Solicitudes" icon="pi pi-fw pi-calendar" outcome="Solicitudes"/>  
+                          
+
+                            <p:divider layout="vertical"/>
+
+                            <p:menuitem value="Quit" icon="pi pi-fw pi-power-off"/>
+
+                            <f:facet name="end">
+                                <div class="ui-input-icon-left mr-2">
+                                    <i class="pi pi-fw pi-search" />
+                                    <p:inputText placeholder="Search"/>
+                                </div>
+                                <p:button value="Logout" icon="pi pi-fw pi-sign-out" styleClass="ui-button-info"/>
+                            </f:facet>
+                        </p:menubar>
+                    </h:form>
+                </div>
+            </div>
+
+        </div>
+        
+
+
+
+    </h:body>
+</html>
+
