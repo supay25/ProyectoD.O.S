@@ -4,69 +4,91 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:p="http://primefaces.org/ui"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
-    <style>
-        .container-left {
-            display: flex;
-            justify-content: flex-end;
-
-            padding: 10px; /* Adjust padding as needed */
-        }
-        .card {
-            width: auto; /* Optional: Adjust width as needed */
-
-        }
-        .top-bar {
-            background-color: #000000;
-            padding: 15px;
-            text-align: right;
-            position: relative;
-            z-index: 1; /* Lower z-index to make sure it's behind the left bar */
-            width: 100%;
-            box-sizing: border-box; /* Ensure padding doesn't affect width */
-        }
-
-    </style>
+     
     <h:head>
         <title>Dashboard</title>
+      
+        <link rel="stylesheet" href="https://css.gg/icons/all.css"/>
+        <link href='https://unpkg.com/css.gg@2.0.0/icons/css/home.css' rel='stylesheet'/>
+        <link href='https://unpkg.com/css.gg@2.0.0/icons/css/briefcase.css' rel='stylesheet'/>
+        <link href='https://unpkg.com/css.gg@2.0.0/icons/css/align-bottom.css' rel='stylesheet'/>
+        <link href='https://unpkg.com/css.gg@2.0.0/icons/css/browse.css' rel='stylesheet'/>
+        <style>
+            .body{
+                background-color: #B0D7FF;
+            }
+            .container-left {
+                display: flex;
+                justify-content: flex-end;
+                padding: 10px; /* Adjust padding as needed */
+            }
+           
+            .left-bar {
+                background-color: #2D3142; /* Set the background color to dark blue */
+                padding: 15px;
+                position: fixed;
+                left: 0;
+                top: 0;
+                z-index: 1; /* Ensure the left bar is in front of other elements */
+                height: 100vh;
+                width: 15%; /* Fixed width */
+                display: flex;
+                flex-direction: column; /* Stack children vertically */
+              
+                align-items: center; /* Center children horizontally */
+            }
+
+            .left-bar ul {
+                list-style-type: none;
+                padding: 0;
+                margin-top: 50%;
+                display: flex;
+                flex-direction: column; /* Stack list items vertically */
+                align-items:flex-start ; /* Center list items horizontally */
+            }
+
+            .left-bar li {
+                margin: 10px 0;
+            }
+
+            .left-bar a {
+                color: white; /* Change link color to white */
+                text-decoration: none;
+                font-size: 16px;
+                display: flex;
+                align-items: center; /* Align items vertically */
+            }
+
+            .left-bar a i {
+                margin-right: 15px; /* Space between icon and text */
+            }
+
+            .left-bar a:hover {
+                color: #cccccc; /* Change link color on hover */
+            }
+            .content {
+                margin-left: 10%; /* Same width as the left-bar */
+                padding: 20px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100vh; /* Full height */
+            }
+        </style>
     </h:head>
     <h:body>
-        <div class="top-bar">
-            <div class="container-left">
-                <div class="card">
-                    <h:form>
-                        <p:growl id="messages"/>
-
-                        <p:menubar>
-                            <f:facet name="start">
-                                <p:graphicImage name="images/primefaces-logo.svg" library="showcase" />
-                            </f:facet>
-                           <p:menuitem value="Dashboard" icon="pi pi-globe" outcome="Dashboard"/>
-                            <p:menuitem value="Asistencia" icon="pi pi-id-card" outcome="Asistencia"/>    
-                            <p:menuitem value="Planilla" icon="pi pi-pencil" outcome="Planilla"/>
-                             <p:menuitem value="Solicitudes" icon="pi pi-fw pi-calendar" outcome="Solicitudes"/>  
-                          
-
-                            <p:divider layout="vertical"/>
-
-                            <p:menuitem value="Quit" icon="pi pi-fw pi-power-off"/>
-
-                            <f:facet name="end">
-                                <div class="ui-input-icon-left mr-2">
-                                    <i class="pi pi-fw pi-search" />
-                                    <p:inputText placeholder="Search"/>
-                                </div>
-                                <p:button value="Logout" icon="pi pi-fw pi-sign-out" styleClass="ui-button-info"/>
-                            </f:facet>
-                        </p:menubar>
-                    </h:form>
-                </div>
-            </div>
-
+        <div class="left-bar">
+            <ul>
+                <li><h:link outcome="Dashboard.xhtml"><i class="gg-home"></i> Dashboard</h:link></li>
+                <li><h:link outcome="Solicitudes.xhtml"><i class="gg-briefcase"></i> Solicitudes</h:link></li>
+                <li><h:link outcome="Planilla.xhtml"><i class="gg-align-bottom"></i> Planilla</h:link></li>
+                <li><h:link outcome="Asistencia.xhtml"><i class="gg-browse"></i> Asistencia</h:link></li>                             
+            </ul>
         </div>
+        <div class="content">
+            
         
-
-
-
+        <iframe width="900" height="700" src="https://lookerstudio.google.com/embed/reporting/b7785e82-b7a0-4821-8482-45d359b924bc/page/Lxa6D" frameborder="0" style="border:0" allowfullscreensandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"></iframe> 
+        </div>
     </h:body>
 </html>
-
