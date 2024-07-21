@@ -34,7 +34,7 @@ public class ServicioEmpleado  extends Service {
 
         return false;
     }
-     
+     //xd
    public Integer obtenerPermisoUsuario(String usuario) {
     try {
         PreparedStatement stmt = super.getConexion().prepareStatement("SELECT id_acceso FROM usuario WHERE usuario = ?");

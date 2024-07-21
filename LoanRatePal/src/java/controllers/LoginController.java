@@ -74,7 +74,7 @@ public class LoginController implements Serializable {
         }
     }
   
-     
+     //ss
       public void ingresar() {
         ServicioEmpleado s = new ServicioEmpleado();
 
