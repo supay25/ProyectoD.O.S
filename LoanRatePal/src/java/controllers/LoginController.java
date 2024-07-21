@@ -6,6 +6,7 @@
 package controllers;
 
 
+import com.cci.service.ServicioEmpleado;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -22,25 +23,25 @@ import org.primefaces.event.RowEditEvent;
 
 public class LoginController implements Serializable {
     
-    private String correo;
+    private String usuario;
     private String clave;
     private int cedula;
 
     public LoginController() {
     }
 
-    public LoginController(String correo, String clave, int cedula) {
-        this.correo = correo;
+    public LoginController(String usuario, String clave, int cedula) {
+        this.usuario = usuario;
         this.clave = clave;
         this.cedula = cedula;
     }
 
-    public String getCorreo() {
-        return correo;
+    public String getUsuario() {
+        return usuario;
     }
 
-    public void setCorreo(String correo) {
-        this.correo = correo;
+    public void setUsuario(String usuario) {
+        this.usuario = usuario;
     }
 
     public String getClave() {
@@ -72,10 +73,23 @@ public class LoginController implements Serializable {
         } catch (Exception e) {
         }
     }
+  
      
-     public void ingresar(){
+      public void ingresar() {
+        ServicioEmpleado s = new ServicioEmpleado();
+
+        if (s.Ver(this.getUsuario(), this.getClave())) {
+              int id_acc = s.obtenerPermisoUsuario(this.getUsuario());
+             
+            if (id_acc == 1) {
+                this.redireccionar("/faces/Dashboard.xhtml");
+            } else {
+//                this.redireccionar("/faces/Solicitudes.xhtml");
+            }
+        } else {
+            FacesContext.getCurrentInstance().addMessage("sticky-key", new FacesMessage(FacesMessage.SEVERITY_ERROR, "Campos Invalidos", "La clave o correo no son correctos"));
+        }
+    }
      
-         this.redireccionar("/faces/Dashboard.xhtml");
-     }
      
 }

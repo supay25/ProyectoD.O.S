@@ -82,7 +82,7 @@
             <h:form id="form">
                 <p:growl id="msg" showDetail="true" />
                 <label class="login-label">Ingresar</label>
-                <p:inputText value="#{loginController.correo}" placeholder="Correo electrónico" styleClass="login-input" />
+                <p:inputText value="#{loginController.usuario}" placeholder="Correo electrónico" styleClass="login-input" />
                 <p:password value="#{loginController.clave}" placeholder="Contraseña" styleClass="login-input" />
                 <p:commandButton value="Continuar" actionListener="#{loginController.ingresar()}" update="msg" styleClass="login-button" />
               
